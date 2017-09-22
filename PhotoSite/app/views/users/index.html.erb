@@ -1,0 +1,27 @@
+<html>
+<head>
+  <style>
+
+  </style>
+</head>
+<body>
+<h1>PhotoSite User List </h1>
+<h3>There are <%= @users.count %> users</h3>
+<table border="1">
+  <tr align="center">
+    <th> User ID </th>
+    <th> First Name </th>
+    <th> Last Name </th>
+  </tr>
+  <% @users.each do |user| %>
+      <tr align="center">
+        <td><a href="/photos/index/<%=user.id %>"><b><%= user.id %></b> </a></td>
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name %></td>
+      </tr>
+  <% end %>
+</table>
+
+</body>
+
+</html>

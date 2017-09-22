@@ -1,0 +1,49 @@
+<html>
+<head>
+  <style>
+
+  </style>
+</head>
+<body>
+<h2>Photos of this user are </h2> <br>
+<h2></h2>
+<table border="1">
+  <tr align="center">
+    <th>Photo</th>
+    <th>Created Time</th>
+    <th> Comments</th>
+  </tr>
+  <% @userphotos.each do |photo| %>
+      <tr align="center">
+        <td>
+          <img src= "/assets/<%=photo.file_name %>">
+        </td>
+        <td>
+          <%=photo.date_time %>
+          <br>
+          <% photo.id%>
+        </td>
+        <td>
+          <% @usercomment.each do |comm| %>
+              <% if (comm.photo)==((photo.id).to_s) %>
+
+                  <a href="/photos/index/<%=comm.user %>"><b>User:
+                  <%@users.each do |usr|%>
+                  <% if ((comm.user).to_i)==usr.id %>
+                        <%=usr.first_name %>    </b> </a><br>
+                  <% end %>
+                  <% end %>
+                  <b> Time: </b><%=comm.date_time %> <br>
+                  <b> Comment: </b><%=comm.comment_text %> <br><br>
+              <% end %>
+          <% end %>
+
+        </td>
+
+      </tr>
+  <% end %>
+</table>
+
+</body>
+
+</html>
